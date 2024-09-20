@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 import time
 
-img = cv.imread('P:/cows/cow1.jpg')
+img = cv.imread('P:/cows/cow4.jpg')
 cv.imshow('window',  img)
 cv.waitKey(1)
 
@@ -18,8 +18,8 @@ net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
 # net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 
 # determine the output layer
-ln = net.getLayerNames()
-ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+layers = net.getLayerNames()
+ln = [layers[i - 1] for i in net.getUnconnectedOutLayers()]
 
 # construct a blob from the image
 blob = cv.dnn.blobFromImage(img, 1/255.0, (416, 416), swapRB=True, crop=False)
@@ -27,7 +27,7 @@ r = blob[0, 0, :, :]
 
 cv.imshow('blob', r)
 text = f'Blob shape={blob.shape}'
-cv.displayOverlay('blob', text)
+#cv.displayOverlay('blob', text)
 cv.waitKey(1)
 
 net.setInput(blob)
@@ -57,7 +57,7 @@ r0 = blob[0, 0, :, :]
 r = r0.copy()
 cv.imshow('blob', r)
 cv.createTrackbar('confidence', 'blob', 50, 101, trackbar2)
-trackbar2(50)
+#trackbar2(50)
 
 boxes = []
 confidences = []
@@ -88,6 +88,7 @@ if len(indices) > 0:
         cv.rectangle(img, (x, y), (x + w, y + h), color, 2)
         text = "{}: {:.4f}".format(classes[classIDs[i]], confidences[i])
         cv.putText(img, text, (x, y - 5), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+
 
 cv.imshow('window', img)
 cv.waitKey(0)
