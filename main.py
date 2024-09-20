@@ -1,6 +1,4 @@
 # YOLO object detection
-from typing import Any
-
 import cv2 as cv
 import numpy as np
 import time
@@ -21,7 +19,7 @@ net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
 
 # determine the output layer
 ln = net.getLayerNames()
-ln = net.getUnconnectedOutLayersNames()
+ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 # construct a blob from the image
 blob = cv.dnn.blobFromImage(img, 1/255.0, (416, 416), swapRB=True, crop=False)
@@ -36,7 +34,6 @@ net.setInput(blob)
 t0 = time.time()
 outputs = net.forward(ln)
 t = time.time()
-#hello
 print('time=', t-t0)
 
 print(len(outputs))
@@ -44,7 +41,7 @@ for out in outputs:
     print(out.shape)
 
 def trackbar2(x):
-    confidence: float | Any = x/100
+    confidence = x/100
     r = r0.copy()
     for output in np.vstack(outputs):
         if output[4] > confidence:
