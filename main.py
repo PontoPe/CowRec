@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 import time
 
-img = cv.imread('P:/cows/cow4.jpg')
+img = cv.imread('P:/cows/cow2.jpg')
 cv.imshow('window',  img)
 cv.waitKey(1)
 
@@ -51,7 +51,7 @@ def trackbar2(x):
             cv.rectangle(r, p0, p1, 1, 1)
     cv.imshow('blob', r)
     text = f'Bbox confidence={confidence}'
-    cv.displayOverlay('blob', text)
+    #cv.displayOverlay('blob', text)
 
 r0 = blob[0, 0, :, :]
 r = r0.copy()
@@ -69,7 +69,7 @@ for output in outputs:
         scores = detection[5:]
         classID = np.argmax(scores)
         confidence = scores[classID]
-        if confidence > 0.5:
+        if confidence > 0.6:
             box = detection[:4] * np.array([w, h, w, h])
             (centerX, centerY, width, height) = box.astype("int")
             x = int(centerX - (width / 2))
@@ -81,6 +81,7 @@ for output in outputs:
 
 indices = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
 if len(indices) > 0:
+    cowDetected = 0
     for i in indices.flatten():
         (x, y) = (boxes[i][0], boxes[i][1])
         (w, h) = (boxes[i][2], boxes[i][3])
@@ -88,6 +89,14 @@ if len(indices) > 0:
         cv.rectangle(img, (x, y), (x + w, y + h), color, 2)
         text = "{}: {:.4f}".format(classes[classIDs[i]], confidences[i])
         cv.putText(img, text, (x, y - 5), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+        print(f"Detected object: {classes[classIDs[i]]}, Confidence: {confidences[i]:.4f}")
+        if classes[classIDs[i]] == 'cow':
+            print('Cow detected!')
+            cowDetected = 1
+    if cowDetected == 1:
+        print('Cow detected!!!!!!!')
+
+
 
 
 cv.imshow('window', img)
