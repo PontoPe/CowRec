@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 import time
 
-img = cv.imread('P:/cows/cow2.jpg')
+img = cv.imread('C:/Users/pegra/OneDrive/Imagens/cows/cow1.jpg')
 cv.imshow('window',  img)
 cv.waitKey(1)
 
@@ -89,9 +89,8 @@ if len(indices) > 0:
         cv.rectangle(img, (x, y), (x + w, y + h), color, 2)
         text = "{}: {:.4f}".format(classes[classIDs[i]], confidences[i])
         cv.putText(img, text, (x, y - 5), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
-        print(f"Detected object: {classes[classIDs[i]]}, Confidence: {confidences[i]:.4f}")
+        print(f"Detected object: {classes[classIDs[i]]}, Confidence: {confidences[i]:.3f}")
         if classes[classIDs[i]] == 'cow':
-            print('Cow detected!')
             cowDetected = 1
     if cowDetected == 1:
         print('Cow detected!!!!!!!')
