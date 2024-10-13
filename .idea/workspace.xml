@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82004b4c-ee39-4137-866c-b2254efe3811" name="Changes" comment="First accurate id">
-      <change beforePath="$PROJECT_DIR$/.idea/CowRec.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CowRec.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -110,7 +108,11 @@
       <workItem from="1727291089276" duration="18000" />
       <workItem from="1727476628702" duration="436000" />
       <workItem from="1727701247668" duration="230000" />
-      <workItem from="1727701639614" duration="726000" />
+      <workItem from="1727701639614" duration="1650000" />
+      <workItem from="1727787240118" duration="908000" />
+      <workItem from="1727791630954" duration="158000" />
+      <workItem from="1728391504748" duration="6000" />
+      <workItem from="1728487224665" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -157,7 +159,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="First accurate id" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/cowrec$main.coverage" NAME="main Coverage Results" MODIFIED="1727701718811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cowrec$main.coverage" NAME="main Coverage Results" MODIFIED="1727791676876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CowRec$main.coverage" NAME="main Coverage Results" MODIFIED="1727476956371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
